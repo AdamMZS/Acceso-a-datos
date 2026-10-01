@@ -1,0 +1,114 @@
+# Arquitectura de la aplicación t3
+
+La aplicación está separada en varias capas para organizar mejor el codigo
+
+
+---
+
+# Capa de Datos
+
+En esta capa se encuentran las clases que almacenan la información de las tareas y la gestión del fichero.
+
+## Clase Tarea
+
+Representa una tarea de la aplicación.
+
+### Atributos
+
+- nombre
+- prioridad
+- descripcion
+- estado
+
+### Métodos
+
+- Constructor
+- Getters y Setters
+
+## Clase FicheroTareas
+
+Se encarga de guardar y leer las tareas desde un fichero.
+
+### Métodos
+
+
+Utiliza clases como:
+
+- BufferedReader
+- BufferedWriter
+
+Cuando se crea, modifica o elimina una tarea, el fichero se actualiza.
+
+---
+
+# Capa de Operaciones
+
+Esta capa contiene la lógica de la aplicación.
+
+## Clase GestorTareas
+
+Gestiona todas las operaciones relacionadas con las tareas.
+
+### Métodos principales
+
+- crearTarea()
+- eliminarTarea()
+- modificarPrioridad()
+- marcarCompletada()
+- buscarTarea()
+- filtrarTareas()
+-guardarTareas() llama a FicheroTareas()
+
+
+Esta clase utiliza:
+
+- Tarea
+- FicheroTareas
+
+---
+
+# Capa de Interfaz
+
+Es la capa con la que interactúa el usuario.
+
+## Clase GUI
+
+Contiene el menú de la aplicación y muestra la información por pantalla.
+
+### Funciones
+
+- Mostrar menú
+- Pedir datos al usuario
+- Mostrar resultados
+- Llamar a los métodos de GestorTareas
+
+---
+
+# Clase Main
+
+Es el punto de entrada del programa.
+
+Su única función es crear la interfaz gráfica y arrancar la aplicación.
+
+Ejemplo:
+
+java
+public class Main {
+    public static void main(String[] args) {
+        GUI gui = new GUI();
+        gui.iniciar();
+    }
+}
+
+
+---
+
+# Funcionamiento
+
+1. El usuario ejecuta la aplicación.
+2. La clase Main inicia la GUI.
+3. La GUI muestra el menú y recoge las opciones del usuario.
+4. La GUI llama a GestorTareas para realizar las operaciones.
+5. GestorTareas trabaja con los objetos Tarea.
+6. Si hay cambios, FicheroTareas actualiza el archivo.
+7. El resultado se muestra al usuario.
