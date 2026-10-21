@@ -9,7 +9,7 @@ Proyecto sencillo en Java para leer datos de Pokémon desde un archivo JSON y ge
 - Muestra el Pokémon con más nivel y con más PS.
 - Agrupa los Pokémon por su tipo (Fuego, Agua, Planta, etc.).
 
-## 🛠️ Tecnologías
+## Tecnologías
 
 * **Java**
 * **Gson** (para leer los datos en JSON)
