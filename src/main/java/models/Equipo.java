@@ -38,4 +38,10 @@ public class Equipo {
     public void setDisponible(Boolean disponible) {
         this.disponible = disponible;
     }
+
+    @Override
+    public String toString() {
+        return "Equipo [id=" + id + ", nombre=" + nombre + ", categoria=" + categoria + ", disponible=" + disponible
+                + "]";
+    }
 }
