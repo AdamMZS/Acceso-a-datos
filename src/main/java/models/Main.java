@@ -3,6 +3,7 @@ import data.DataBaseInit;
 import data.DataSourceFactory;
 import data.EquipoMysqlDAO;
 import models.Equipo;
+import services.EquipoServicio;
 
 import javax.sql.DataSource;
 import java.util.List;
@@ -15,7 +16,12 @@ public class Main {
         DataBaseInit.initialize(ds);
         DataBaseInit.initData(ds);
         // Instanciamos nuestro DAO
-
+        EquipoServicio servicio = new EquipoServicio();
+        if (servicio.BookAllEquiposByCategoria(List.of(7l))) {
+            System.out.println("Todos los equipos fueron reservados con éxito.");
+        }else {
+            System.out.println("No se pudo reservar todos los equipos.");
+        }
 
         EquipoMysqlDAO dao = new EquipoMysqlDAO();
         System.out.println("=== 1. PROBANDO INSERT (save) ===");
